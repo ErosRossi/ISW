@@ -2,8 +2,6 @@ package it.erosrossi.iswproject;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.*;
-import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,11 +10,38 @@ import java.awt.*;
  *
  * @author Rossi Eros
  */
-public class LoginWindow extends JFrame implements Observer {
+public class LoginWindow extends JFrame {
 
     private static final JButton ok = new JButton("OK");
     public String pass;
     public String nome;
+
+    public int SceltaUtente(String nome, String pass )
+    {
+        if( nome.equals("Segreteria") && pass.equals("Segreteria01") )
+        {
+            return 1;
+        }
+        else
+        {
+            if( nome.equals("Negozio") && pass.equals("Negozio02") )
+            {
+                return 2;
+            }
+            else
+            {
+                if( nome.equals("Magazzino") && pass.equals("Magazzino03") )
+                {
+                    return 3;
+                }
+                else
+                {
+                    return 4;
+                }
+            }
+        }
+    }
+
 
     public LoginWindow(  )
     {
@@ -65,6 +90,20 @@ public class LoginWindow extends JFrame implements Observer {
                 nome = new String(testo.getText()); // Fare un metodo di per il controllo e dentro questo evento far partire la seconda interfaccia.
                 System.out.println(nome);
                 System.out.println(pass);
+                int lancio = SceltaUtente( nome, pass); // Metodo funzionante che controlla nomi utente e PW.
+                switch ( lancio )
+                {
+                    case 1: System.out.println("Hai inserito le credenziali per la segreteria generale!");
+                    break;
+
+                    case 2: System.out.println("Hai inserito le credenziali per il negozio!");
+                    break;
+
+                    case 3: System.out.println("Hai inserito le credenziali del magazzino!");
+
+                    case 4: System.out.println("Hai inserto le credenziali non valide");
+                    break;
+                }
                 //check = metodo();
 
 
