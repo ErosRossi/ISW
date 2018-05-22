@@ -4,6 +4,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 import java.awt.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Finestra iniziale di login nell'applicazione.
@@ -16,8 +19,7 @@ public class LoginWindow extends JFrame {
     public String pass;
     public String nome;
 
-    public int SceltaUtente(String nome, String pass )
-    {
+    public int SceltaUtente(String nome, String pass ) throws IOException {
         if( nome.equals("Segreteria") && pass.equals("Segreteria01") )
         {
             return 1;
@@ -88,12 +90,19 @@ public class LoginWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 pass = new String(pw.getPassword());
                 nome = new String(testo.getText()); // Fare un metodo di per il controllo e dentro questo evento far partire la seconda interfaccia.
-                System.out.println(nome);
-                System.out.println(pass);
-                int lancio = SceltaUtente( nome, pass); // Metodo funzionante che controlla nomi utente e PW.
+                //System.out.println(nome);
+                //System.out.println(pass);
+                int lancio = 0; // Metodo funzionante che controlla nomi utente e PW.
+                try {
+                    lancio = SceltaUtente( nome, pass);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 switch ( lancio )
                 {
                     case 1: System.out.println("Hai inserito le credenziali per la segreteria generale!");
+                    new SegreteriaWindow();
+                    login.setVisible(false);
                     break;
 
                     case 2: System.out.println("Hai inserito le credenziali per il negozio!");
