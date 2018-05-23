@@ -48,7 +48,7 @@ public class LoginWindow extends JFrame {
     public LoginWindow(  )
     {
 
-        JFrame login = new JFrame("Finestra di login"); // Creo la finestra per l'autenticazione.
+        final JFrame login = new JFrame("Finestra di login"); // Creo la finestra per l'autenticazione.
         login.setSize(600, 500);
         login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container loginContainer = login.getContentPane();
@@ -63,7 +63,7 @@ public class LoginWindow extends JFrame {
         gridbag.setConstraints(testoUtente, c);
         loginContainer.add(testoUtente);
 
-        JTextField testo = new JTextField(10); // Casella di testo
+        final JTextField testo = new JTextField(10); // Casella di testo
         c.gridx = 1;
         c.gridy = 0;
         gridbag.setConstraints(testo, c);
@@ -75,7 +75,7 @@ public class LoginWindow extends JFrame {
         gridbag.setConstraints(testoPW, c);
         loginContainer.add(testoPW);
 
-        JPasswordField pw = new JPasswordField(); // Casella a caratteri nascosti per la PW.
+        final JPasswordField pw = new JPasswordField(); // Casella a caratteri nascosti per la PW.
         c.gridx = 1;
         c.gridy = 1;
         gridbag.setConstraints(pw, c);
@@ -106,9 +106,14 @@ public class LoginWindow extends JFrame {
                     break;
 
                     case 2: System.out.println("Hai inserito le credenziali per il negozio!");
+                    new NegozioWindow();
+                    login.setVisible(false);
                     break;
 
                     case 3: System.out.println("Hai inserito le credenziali del magazzino!");
+                    new MagazzinoWindow();
+                    login.setVisible(false);
+                    break;
 
                     case 4: System.out.println("Hai inserto le credenziali non valide");
                     break;
