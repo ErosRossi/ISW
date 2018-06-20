@@ -1,6 +1,7 @@
 package it.erosrossi.iswproject;
 
 import javax.swing.*;
+import java.io.*;
 
 /**
  * Classe main dell'applicazione
@@ -14,21 +15,27 @@ public class Main {
      *
      * @param args argomenti del programma
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         int controllo = 2;
         // imposto menù globale macOS
-        System.setProperty("apple.awt.application.name", "prova");
+        System.setProperty("apple.awt.application.name", "Applicazione Astolfi-Rossi");
         System.setProperty("apple.laf.useScreenMenuBar", "true");
 
         // imposto stile nativo UI di sistema
-  try {
+        try
+        {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (Exception e) {
-      e.printStackTrace();
-      }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         // creo la finestra principale
         new LoginWindow();
+
+
+
     }
 }
