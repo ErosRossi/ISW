@@ -7,6 +7,7 @@ import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Finestra iniziale di login nell'applicazione.
@@ -18,6 +19,7 @@ public class LoginWindow extends JFrame {
     private static final JButton ok = new JButton("OK");
     public String pass;
     public String nome;
+
 
     public int SceltaUtente(String nome, String pass ) throws IOException {
         if( nome.equals("Segreteria") && pass.equals("Segreteria01") )
@@ -100,28 +102,33 @@ public class LoginWindow extends JFrame {
                 }
                 switch ( lancio )
                 {
-                    case 1: System.out.println("Hai inserito le credenziali per la segreteria generale!");
+                    case 1:
                     new SegreteriaWindow();
                     login.setVisible(false);
                     break;
 
-                    case 2: System.out.println("Hai inserito le credenziali per il negozio!");
+                    case 2:
                     new NegozioWindow();
                     login.setVisible(false);
                     break;
 
-                    case 3: System.out.println("Hai inserito le credenziali del magazzino!");
+                    case 3:
                     new MagazzinoWindow();
                     login.setVisible(false);
                     break;
 
-                    case 4: System.out.println("Hai inserto le credenziali non valide");
+                    case 4:
+                        // Metodo pop up per credenziali errate.
+                        new PopUpWindow( 0 );
+                        login.setVisible(false);
                     break;
                 }
                 //check = metodo();
 
 
             }
+
+
         });
 
 
