@@ -48,6 +48,7 @@ public class SegreteriaWindow extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 // Codice da inserire
+                new InserimentoArticoliSegreteria();
                 segreteria.setVisible(false);
             }
         });
