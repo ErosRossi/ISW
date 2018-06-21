@@ -11,6 +11,15 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
     private static final JButton conferma = new JButton("Conferma");
 
+    private int contaCampiVuoti = 0;
+
+    public void ContaVuoti( String daControllare )
+    {
+        daControllare.replaceAll(" ", "");
+
+        if( daControllare.isEmpty() )
+            contaCampiVuoti += 1;
+    }
 
     public InserimentoArticoliSegreteria(  )
     {
@@ -39,6 +48,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 0;
         gridbag.setConstraints( sport, c );
         inserimentoArticoliContainer.add(sport);
+        ContaVuoti( sport.getText() );
 
 
 
@@ -56,6 +66,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 1;
         gridbag.setConstraints( tipo, c );
         inserimentoArticoliContainer.add(tipo);
+        ContaVuoti( tipo.getText() );
 
 
 
@@ -73,6 +84,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 2;
         gridbag.setConstraints( materiale, c );
         inserimentoArticoliContainer.add(materiale);
+        ContaVuoti( materiale.getText() );
 
 
 
@@ -90,6 +102,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 3;
         gridbag.setConstraints( taglia, c );
         inserimentoArticoliContainer.add(taglia);
+        ContaVuoti( taglia.getText() );
 
 
 
@@ -107,6 +120,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 4;
         gridbag.setConstraints( colore, c );
         inserimentoArticoliContainer.add(colore);
+        ContaVuoti( colore.getText() );
 
 
 
@@ -119,8 +133,16 @@ public class InserimentoArticoliSegreteria extends JFrame {
         conferma.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new SegreteriaWindow();
-                inserimentoArticoli.setVisible(false);
+
+                if( contaCampiVuoti > 0 )
+                {
+                    new PopUpWindow( 1 );
+                    inserimentoArticoli.setVisible(false);
+                }
+                else
+                {
+                    inserimentoArticoli.setVisible(false);
+                }
             }
         });
 
