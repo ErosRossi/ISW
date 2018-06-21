@@ -47,6 +47,10 @@ public class SegreteriaWindow extends JFrame {
         inserimento.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+<<<<<<< HEAD
+=======
+                // Codice da inserire
+>>>>>>> d6d60c2f920a0fe76177b4fffcc8060888f25e8d
                 new InserimentoArticoliSegreteria();
                 segreteria.setVisible(false);
             }
