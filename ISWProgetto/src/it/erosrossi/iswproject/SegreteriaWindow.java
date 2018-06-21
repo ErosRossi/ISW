@@ -7,9 +7,9 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class SegreteriaWindow extends JFrame {
-    private static final JButton home = new JButton("Home");
-    private static final JButton inserimento = new JButton("Inserisci nuovo articolo");
-    private static final JButton movMagazzino = new JButton("Visualizza movimenti del magazzino");
+    private static final JButton home = new JButton("Home"); // Bottone per la home
+    private static final JButton inserimento = new JButton("Inserisci nuovo articolo"); // Bottone per inserimento articolo
+    private static final JButton movMagazzino = new JButton("Visualizza movimenti del magazzino"); // Bottone per visualizzare i movimenti del magazzino
 
 
     public SegreteriaWindow(  )
@@ -47,7 +47,7 @@ public class SegreteriaWindow extends JFrame {
         inserimento.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                // Codice da inserire
+                new InserimentoArticoliSegreteria();
                 segreteria.setVisible(false);
             }
         });

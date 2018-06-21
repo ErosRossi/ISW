@@ -22,7 +22,6 @@ public class PopUpWindow extends JFrame {
         popupContainer.setLayout(gridbag);
         GridBagConstraints c = new GridBagConstraints();
 
-
         switch ( x ) // Switch case per decidere cosa stampare in caso di errore; ricordarsi ogni volta di nominare in modo diverso la variabile del testo.
         {
             case 0: // Caso di credenziali di accesso di LoginWindow errrate; ritorno alla LoginWindow.

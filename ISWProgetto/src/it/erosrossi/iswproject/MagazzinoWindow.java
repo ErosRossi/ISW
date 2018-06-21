@@ -64,7 +64,7 @@ public class MagazzinoWindow extends JFrame {
         modificaPosizione.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new LoginWindow();
+                new MagazzinoModificaPosizione();
                 magazzino.setVisible(false);
             }
         });

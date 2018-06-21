@@ -92,14 +92,15 @@ public class LoginWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 pass = new String(pw.getPassword());
                 nome = new String(testo.getText()); // Fare un metodo di per il controllo e dentro questo evento far partire la seconda interfaccia.
-                //System.out.println(nome);
-                //System.out.println(pass);
+
                 int lancio = 0; // Metodo funzionante che controlla nomi utente e PW.
+
                 try {
                     lancio = SceltaUtente( nome, pass);
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+
                 switch ( lancio )
                 {
                     case 1:
@@ -117,20 +118,15 @@ public class LoginWindow extends JFrame {
                     login.setVisible(false);
                     break;
 
-                    case 4:
-                        // Metodo pop up per credenziali errate.
+                    case 4: // Metodo pop up per credenziali errate.
                         new PopUpWindow( 0 );
                         login.setVisible(false);
                     break;
                 }
-                //check = metodo();
-
 
             }
 
-
         });
-
 
         login.setVisible(true);
     }
