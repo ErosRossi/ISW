@@ -7,50 +7,77 @@ import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class SegreteriaWindow extends JFrame {
-    private static final JButton oks = new JButton("OK");
+    private static final JButton home = new JButton("Home");
+    private static final JButton inserimento = new JButton("Inserisci nuovo articolo");
+    private static final JButton movMagazzino = new JButton("Visualizza movimenti del magazzino");
 
 
     public SegreteriaWindow(  )
     {
 
-        JFrame login = new JFrame("Finestra di login"); // Creo la finestra per l'autenticazione.
-        login.setSize(600, 500);
-        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Container loginContainer = login.getContentPane();
+        JFrame segreteria = new JFrame("Segreteria"); // Creo la finestra.
+        segreteria.setSize(600, 500);
+        segreteria.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Container segreteriaContainer = segreteria.getContentPane();
         GridBagLayout gridbag = new GridBagLayout();
-        loginContainer.setLayout(gridbag);
+        segreteriaContainer.setLayout(gridbag);
         GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.HORIZONTAL; // Non so come mai ma lasciamolo.
 
-        JLabel testoUtente = new JLabel("Riccardo: "); // Stringa
+        // Inserimento del testo iniziale.
+        JLabel testoSegreteria = new JLabel("Seleziona quale operazione eseguire: ");
         c.gridx = 0;
         c.gridy = 0;
-        gridbag.setConstraints(testoUtente, c);
-        loginContainer.add(testoUtente);
+        c.anchor = GridBagConstraints.CENTER;
+        gridbag.setConstraints( testoSegreteria, c );
+        segreteriaContainer.add( testoSegreteria );
 
-        JTextField testo = new JTextField(10); // Casella di testo
-        c.gridx = 1;
-        c.gridy = 0;
-        gridbag.setConstraints(testo, c);
-        loginContainer.add(testo);
-
-        JLabel testoPW = new JLabel("Eros: ");
+        // Inserimento riga vuota
+        JLabel testoVuoto = new JLabel(" ");
         c.gridx = 0;
         c.gridy = 1;
-        gridbag.setConstraints(testoPW, c);
-        loginContainer.add(testoPW);
+        gridbag.setConstraints( testoVuoto, c );
+        segreteriaContainer.add( testoVuoto );
 
-        JPasswordField pw = new JPasswordField(); // Casella a caratteri nascosti per la PW.
+        // Tasto per inserimento articoli
+        c.gridx = 0;
+        c.gridy = 3;
+        c.anchor = GridBagConstraints.LINE_END;
+        gridbag.setConstraints(inserimento, c);
+        segreteriaContainer.add(inserimento);
+        inserimento.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Codice da inserire
+                segreteria.setVisible(false);
+            }
+        });
+
+        // Tasto per visualizzazione ordini
         c.gridx = 1;
-        c.gridy = 1;
-        gridbag.setConstraints(pw, c);
-        loginContainer.add(pw);
+        c.gridy = 3;
+        gridbag.setConstraints(movMagazzino, c);
+        segreteriaContainer.add(movMagazzino);
+        segreteriaContainer.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                // Codice da inserire
+                segreteria.setVisible(false);
+            }
+        });
 
+        // Tasto per tornare alla home
         c.gridx = 2;
-        c.gridy = 1;
-        gridbag.setConstraints(oks, c);
-        loginContainer.add(oks);
+        c.gridy = 3;
+        gridbag.setConstraints(home, c);
+        segreteriaContainer.add(home);
+        home.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                new LoginWindow();
+                segreteria.setVisible(false);
+            }
+        });
 
-        login.setVisible(true);
+        segreteria.setVisible(true);
     }
 }
