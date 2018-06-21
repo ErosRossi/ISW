@@ -11,18 +11,23 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
     private static final JButton conferma = new JButton("Conferma");
 
-    private int contaCampiVuoti = 0;
+    public int contaCampiVuoti = 0;
 
     public void ContaVuoti( String daControllare )
     {
-        daControllare.replaceAll(" ", "");
-
-        if( daControllare.isEmpty() )
-            contaCampiVuoti += 1;
+        daControllare = daControllare.trim(); // Sovrascrivo la stringa eliminando gli spazi
+        
+        if( daControllare.isEmpty() ) {
+            contaCampiVuoti = 1;
+        }
     }
 
     public InserimentoArticoliSegreteria(  )
     {
+
+        // contaCampiVuoti = 0;
+
+        String s = new String();
 
         JFrame inserimentoArticoli = new JFrame("Inserimento Articoli"); // Creo la finestra.
         inserimentoArticoli.setSize(600, 500);
@@ -43,12 +48,11 @@ public class InserimentoArticoliSegreteria extends JFrame {
         inserimentoArticoliContainer.add(testoSport);
 
         // Campo inserimento sport.
-        JTextField sport = new JTextField( 10 ); // Necessario usare getText per recuperare quello che é scritto dentro.
+        final JTextField sport = new JTextField( 10 ); // Necessario usare getText per recuperare quello che é scritto dentro.
         c.gridx = 1;
         c.gridy = 0;
         gridbag.setConstraints( sport, c );
         inserimentoArticoliContainer.add(sport);
-        ContaVuoti( sport.getText() );
 
 
 
@@ -66,7 +70,6 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 1;
         gridbag.setConstraints( tipo, c );
         inserimentoArticoliContainer.add(tipo);
-        ContaVuoti( tipo.getText() );
 
 
 
@@ -84,7 +87,6 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 2;
         gridbag.setConstraints( materiale, c );
         inserimentoArticoliContainer.add(materiale);
-        ContaVuoti( materiale.getText() );
 
 
 
@@ -102,7 +104,6 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 3;
         gridbag.setConstraints( taglia, c );
         inserimentoArticoliContainer.add(taglia);
-        ContaVuoti( taglia.getText() );
 
 
 
@@ -120,7 +121,6 @@ public class InserimentoArticoliSegreteria extends JFrame {
         c.gridy = 4;
         gridbag.setConstraints( colore, c );
         inserimentoArticoliContainer.add(colore);
-        ContaVuoti( colore.getText() );
 
 
 
@@ -134,15 +134,19 @@ public class InserimentoArticoliSegreteria extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
 
-                if( contaCampiVuoti > 0 )
+                ContaVuoti( new String(sport.getText()) );
+                ContaVuoti( new String(tipo.getText()) );
+                ContaVuoti( new String(materiale.getText()) );
+                ContaVuoti( new String(taglia.getText()) );
+                ContaVuoti( new String(colore.getText()) );
+
+                if( contaCampiVuoti != 0 )
                 {
                     new PopUpWindow( 1 );
-                    inserimentoArticoli.setVisible(false);
                 }
-                else
-                {
-                    inserimentoArticoli.setVisible(false);
-                }
+
+                inserimentoArticoli.setVisible(false);
+
             }
         });
 
