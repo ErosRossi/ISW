@@ -16,7 +16,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
     public void ContaVuoti( String daControllare )
     {
         daControllare = daControllare.trim(); // Sovrascrivo la stringa eliminando gli spazi
-        
+
         if( daControllare.isEmpty() ) {
             contaCampiVuoti = 1;
         }
@@ -24,10 +24,6 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
     public InserimentoArticoliSegreteria(  )
     {
-
-        // contaCampiVuoti = 0;
-
-        String s = new String();
 
         JFrame inserimentoArticoli = new JFrame("Inserimento Articoli"); // Creo la finestra.
         inserimentoArticoli.setSize(600, 500);
