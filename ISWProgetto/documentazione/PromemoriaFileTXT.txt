@@ -1,0 +1,8 @@
+File Catalogo.txt
+Sport/Tipo/Materiale/Taglia/Colore.
+
+File Articoli.txt
+CodiceUnivoco/Sport/Tipo/Prezzo/DataFabbricazione/PosizioneNelMagazzino.
+
+File MagazzinoOUT.txt
+NumeroBolla/CodiceArticolo(i)/DataSpedizione/Negozio/Corriere.
