@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
+import java.io.*;
 
 public class InserimentoArticoliSegreteria extends JFrame {
     private static final JButton home = new JButton("Home Segreteria");
@@ -21,6 +21,55 @@ public class InserimentoArticoliSegreteria extends JFrame {
             contaCampiVuoti = 1;
         }
     }
+
+    public void Check (String s) {
+        String in = "";
+        int size = 0;
+
+        try {
+            File file = new File(path);
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            size = br.read(in);
+
+            System.out.print("Caratteri presenti: " + size + "\n");
+            System.out.print("Il contenuto del file è il seguente:\n");
+
+            for(int i=0; i<size; i++)
+                System.out.print(in[i]);
+                writeFile(s);
+            br.close();
+
+        } catch(IOException e) {
+            //e.printStackTrace();
+        }
+    }
+
+    }
+
+    public void writeFile(String s) {
+
+        try {
+
+            FileWriter fw = new FileWriter("Catalogo.txt", true);
+            BufferedWriter bw = new BufferedWriter (fw);
+            PrintWriter outFile = new PrintWriter (bw);
+
+            outFile.write(s);
+            outFile.close();
+            fw.flush();
+            fw.close();
+        }
+        catch(IOException e) {
+            //e.printStackTrace();
+        }
+    }
+
+
+
+        String path = "C:/html.txt";
+
+
 
     public InserimentoArticoliSegreteria(  )
     {
@@ -140,7 +189,15 @@ public class InserimentoArticoliSegreteria extends JFrame {
                 {
                     new PopUpWindow( 1 );
                 }
+                String sportc =  sport.getText();
+                String tipoc = tipo.getText();
+                String materialec = materiale.getText();
+                String tagliac = taglia.getText();
+                String colorec = colore.getText();
 
+                String stringcatalogo = sportc+"/"+tipoc+"/"+materialec+"/"+tagliac+"/"+colorec+".\n" ;
+
+                Check(stringcatalogo);
                 inserimentoArticoli.setVisible(false);
 
             }
@@ -165,3 +222,4 @@ public class InserimentoArticoliSegreteria extends JFrame {
         inserimentoArticoli.setVisible(true);
     }
 }
+
