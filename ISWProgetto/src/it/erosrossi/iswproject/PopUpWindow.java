@@ -68,6 +68,28 @@ public class PopUpWindow extends JFrame {
 
                 break;
 
+
+
+            case 2: // Caso di articolo giá inserito nel catalogo.
+                JLabel testoArticoloGiaInserito = new JLabel( "L' articolo é giá presente nel nostro catalogo!");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoArticoloGiaInserito , c );
+                popupContainer.add( testoArticoloGiaInserito );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(inserimentoArticolo, c);
+                popupContainer.add(inserimentoArticolo);
+                inserimentoArticolo.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new InserimentoArticoliSegreteria();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
         }
 
         popup.setVisible(true);
