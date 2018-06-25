@@ -29,12 +29,8 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
         FileReader fr = new FileReader("Catalogo.txt");
         BufferedReader br = new BufferedReader(fr);
-        System.out.println("Prova");
 
-        while ( (in = br.readLine()) == null ) { // Bisogna fare il controllo.
-
-            System.out.println(in);
-            System.out.println(s);
+        while ( (in = br.readLine()) != null ) { // Bisogna fare il controllo.
 
             if (in.equals(s)) {
                 valore = 1;
@@ -190,13 +186,14 @@ public class InserimentoArticoliSegreteria extends JFrame {
                 {
                     new PopUpWindow( 1 );
                 }
+
                 String sportc =  sport.getText();
                 String tipoc = tipo.getText();
                 String materialec = materiale.getText();
                 String tagliac = taglia.getText();
                 String colorec = colore.getText();
 
-                String stringcatalogo = sportc+"/"+tipoc+"/"+materialec+"/"+tagliac+"/"+colorec+".\n" ;
+                String stringcatalogo = sportc+"/"+tipoc+"/"+materialec+"/"+tagliac+"/"+colorec+"." ;
 
                 try {
                     if( Check(stringcatalogo) == 1 )
@@ -205,7 +202,8 @@ public class InserimentoArticoliSegreteria extends JFrame {
                     }
                     else
                     {
-                        writeFile(stringcatalogo);
+                        String daStampa = stringcatalogo+"\n";
+                        writeFile(daStampa);
                         new SegreteriaWindow();
                     }
 
