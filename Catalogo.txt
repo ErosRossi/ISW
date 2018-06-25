@@ -45,12 +45,12 @@ Nuoto/Costume/Sintetico/S/Rosso.
 Nuoto/Costume/Sintetico/M/Blu.
 Nuoto/Costume/Sintetico/L/Blu.
 Nuoto/Costume/Sintetico/S/Blu.
-Ciclismo/Bicicletta/Carbonio/54/Blu. 
-Ciclismo/Bicicletta/Carbonio/55/Blu. 
+Ciclismo/Bicicletta/Carbonio/54/Blu.
+Ciclismo/Bicicletta/Carbonio/55/Blu.
 Ciclismo/Bicicletta/Carbonio/56/Blu.
-Ciclismo/Bicicletta/Carbonio/54/Verde. 
-Ciclismo/Bicicletta/Carbonio/55/Verde. 
-Ciclismo/Bicicletta/Carbonio/56/Verde. 
+Ciclismo/Bicicletta/Carbonio/54/Verde.
+Ciclismo/Bicicletta/Carbonio/55/Verde.
+Ciclismo/Bicicletta/Carbonio/56/Verde.
 Ciclismo/Casco/Carbonio/M/Rosa.
 Ciclismo/Casco/Carbonio/S/Rosa.
 Ciclismo/Casco/Carbonio/L/Rosa.
