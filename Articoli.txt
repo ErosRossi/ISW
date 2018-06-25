@@ -1,0 +1,10 @@
+001/Calcio/Pallone/8/15 Dic 2017/Q3.
+002/Calcio/Pallone/8/15 Dic 2017/Q3.
+003/Calcio/Pallone/8/15 Dic 2017/Q3.
+004/Calcio/Maglia/35/3 Gen 2018/Q1.
+005/Calcio/Pantaloncino/25/02 Nov 2017/Q1.
+006/Basketball/Canotta/30/18 Ott 2017/Q1.
+007/Baseball/Mazza/60/4 Feb 2018/Q3.
+008/Baseball/Mazza/73/22 Feb 2018/Q3.
+009/Nuoto/Occhiali/4/1 Nov 2017/Q2.
+010/Nuoto/Costume/31/28 Mar 2018/Q1.
