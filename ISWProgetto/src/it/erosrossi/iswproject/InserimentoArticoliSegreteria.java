@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.lang.String;
 
 public class InserimentoArticoliSegreteria extends JFrame {
     private static final JButton home = new JButton("Home Segreteria");
@@ -22,28 +23,22 @@ public class InserimentoArticoliSegreteria extends JFrame {
         }
     }
 
-    public void Check (String s) {
-        String in = "";
+    public int Check (String s) throws IOException {
+        String in = new String();
         int size = 0;
+        int valore = 0;
 
-        try {
-            File file = new File(path);
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            size = br.read(in);
+        FileReader fr = new FileReader("Articoli.txt");
+        BufferedReader br = new BufferedReader(fr);
 
-            System.out.print("Caratteri presenti: " + size + "\n");
-            System.out.print("Il contenuto del file è il seguente:\n");
+        in = br.readLine();
 
-            for(int i=0; i<size; i++)
-                System.out.print(in[i]);
-                writeFile(s);
-            br.close();
+        if( in.equals(s) )
+        { valore = 1; }
 
-        } catch(IOException e) {
-            //e.printStackTrace();
-        }
-    }
+        br.close();
+
+        return valore;
 
     }
 
@@ -197,7 +192,19 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
                 String stringcatalogo = sportc+"/"+tipoc+"/"+materialec+"/"+tagliac+"/"+colorec+".\n" ;
 
-                Check(stringcatalogo);
+                try {
+                    if( Check(stringcatalogo) == 1 )
+                    {
+                        writeFile(stringcatalogo);
+                    }
+                    else
+                    {
+                        new PopUpWindow(2);
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
                 inserimentoArticoli.setVisible(false);
 
             }
