@@ -25,16 +25,22 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
     public int Check (String s) throws IOException {
         String in = new String();
-        int size = 0;
         int valore = 0;
 
-        FileReader fr = new FileReader("Articoli.txt");
+        FileReader fr = new FileReader("Catalogo.txt");
         BufferedReader br = new BufferedReader(fr);
+        System.out.println("Prova");
 
-        in = br.readLine();
+        while ( (in = br.readLine()) == null ) { // Bisogna fare il controllo.
 
-        if( in.equals(s) )
-        { valore = 1; }
+            System.out.println(in);
+            System.out.println(s);
+
+            if (in.equals(s)) {
+                valore = 1;
+            }
+
+        }
 
         br.close();
 
@@ -195,15 +201,18 @@ public class InserimentoArticoliSegreteria extends JFrame {
                 try {
                     if( Check(stringcatalogo) == 1 )
                     {
-                        writeFile(stringcatalogo);
+                        new PopUpWindow(2);
                     }
                     else
                     {
-                        new PopUpWindow(2);
+                        writeFile(stringcatalogo);
+                        new SegreteriaWindow();
                     }
+
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+
 
                 inserimentoArticoli.setVisible(false);
 
