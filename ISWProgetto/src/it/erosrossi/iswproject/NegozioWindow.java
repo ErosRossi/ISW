@@ -48,6 +48,7 @@ public class NegozioWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 //new InserimentoArticoliSegreteria();
                 negozio.setVisible(false);
+                negozio.dispose();
             }
         });
 
@@ -62,6 +63,7 @@ public class NegozioWindow extends JFrame {
                 // Codice da inserire
                 new OrdiniPassatiNegozio();
                 negozio.setVisible(false);
+                negozio.dispose();
             }
         });
 
@@ -75,6 +77,7 @@ public class NegozioWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 new LoginWindow();
                 negozio.setVisible(false);
+                negozio.dispose();
             }
         });
 

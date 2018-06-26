@@ -51,6 +51,7 @@ public class SegreteriaWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 new InserimentoArticoliSegreteria();
                 segreteria.setVisible(false);
+                segreteria.dispose();
             }
         });
 
@@ -65,6 +66,7 @@ public class SegreteriaWindow extends JFrame {
                 // Codice da inserire
                 new SegreteriaVedeMovimenti();
                 segreteria.setVisible(false);
+                segreteria.dispose();
             }
         });
 
@@ -78,6 +80,7 @@ public class SegreteriaWindow extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 new LoginWindow();
                 segreteria.setVisible(false);
+                segreteria.dispose();
             }
         });
 

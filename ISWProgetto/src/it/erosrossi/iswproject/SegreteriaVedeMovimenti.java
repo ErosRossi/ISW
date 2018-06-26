@@ -92,6 +92,7 @@ public class SegreteriaVedeMovimenti {
             public void mouseClicked(MouseEvent e) {
                 new SegreteriaWindow();
                 movMagazzino.setVisible(false);
+                movMagazzino.dispose();
             }
         });
 

@@ -213,6 +213,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
 
                 inserimentoArticoli.setVisible(false);
+                inserimentoArticoli.dispose();
 
             }
         });
@@ -230,6 +231,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
             public void mouseClicked(MouseEvent e) {
                 new SegreteriaWindow();
                 inserimentoArticoli.setVisible(false);
+                inserimentoArticoli.dispose();
             }
         });
 

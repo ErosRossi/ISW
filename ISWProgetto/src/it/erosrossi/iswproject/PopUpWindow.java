@@ -41,6 +41,7 @@ public class PopUpWindow extends JFrame {
                     public void mouseClicked(MouseEvent e) {
                         new LoginWindow();
                         popup.setVisible(false);
+                        popup.dispose();
                     }
                 });
 
@@ -64,6 +65,7 @@ public class PopUpWindow extends JFrame {
                     public void mouseClicked(MouseEvent e) {
                         new InserimentoArticoliSegreteria();
                         popup.setVisible(false);
+                        popup.dispose();
                     }
                 });
 
@@ -87,6 +89,7 @@ public class PopUpWindow extends JFrame {
                     public void mouseClicked(MouseEvent e) {
                         new InserimentoArticoliSegreteria();
                         popup.setVisible(false);
+                        popup.dispose();
                     }
                 });
 
