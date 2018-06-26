@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class PopUpWindow extends JFrame {
+    
     private static final JButton home = new JButton("Home"); // Bottone per la home
     private static final JButton inserimentoArticolo = new JButton("Inserimento Articolo"); // Bottone per il ritorno all'inserimento dell'articolo
 
