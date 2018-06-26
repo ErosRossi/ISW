@@ -4,10 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.*;
 import java.awt.*;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Finestra iniziale di login nell'applicazione.
@@ -104,8 +101,8 @@ public class LoginWindow extends JFrame {
                 switch ( lancio )
                 {
                     case 1:
-                    new SegreteriaWindow();
-                    login.setVisible(false);
+                        new SegreteriaWindow();
+                        login.setVisible(false);
                     break;
 
                     case 2:
