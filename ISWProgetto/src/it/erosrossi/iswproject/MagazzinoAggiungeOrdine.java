@@ -59,10 +59,12 @@ public class MagazzinoAggiungeOrdine {
 
         }
 
-        String tmp = new String();
-        tmp = bolla+"/02 Lug 2018"+negozio+"/"+prodotti+"/"+corriere+"\n";
+        br.close();
 
-        FileWriter fw = new FileWriter("Articoli.txt",true);
+        String tmp = new String();
+        tmp = bolla+"/02 Lug 2018"+"/"+negozio+"/"+prodotti+"/"+corriere+"\n";
+
+        FileWriter fw = new FileWriter("MagazzinoOUT.txt",true);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter outFile = new PrintWriter (bw);
         outFile.write(tmp);
@@ -93,9 +95,17 @@ public class MagazzinoAggiungeOrdine {
             e.printStackTrace();
         }
 
-        JComboBox listaBolle = new JComboBox(numBolle); // Menú a tendina degli ordini inviabili
-        listaBolle.setSelectedIndex(4);
+
+        JLabel testoSelezioneBolla = new JLabel("Seleziona la bolla dell'ordine");
         c.gridx = 0;
+        c.gridy = 0;
+        gridbag.setConstraints( testoSelezioneBolla, c );
+        magazzinoAddOrdineContainer.add( testoSelezioneBolla );
+
+
+        JComboBox listaBolle = new JComboBox(numBolle); // Menú a tendina degli ordini inviabili
+        //listaBolle.setSelectedIndex(4);
+        c.gridx = 1;
         c.gridy = 0;
         gridbag.setConstraints( listaBolle, c );
         magazzinoAddOrdineContainer.add( listaBolle );
