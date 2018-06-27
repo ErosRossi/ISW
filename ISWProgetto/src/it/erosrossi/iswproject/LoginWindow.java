@@ -120,8 +120,8 @@ public class LoginWindow extends JFrame {
 
                     case 4: // Metodo pop up per credenziali errate.
                         new PopUpWindow( 0 );
-                        login.setVisible(false);
                         login.dispose();
+                        login.setVisible(false);
                     break;
                 }
 

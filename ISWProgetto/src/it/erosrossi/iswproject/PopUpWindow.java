@@ -40,8 +40,8 @@ public class PopUpWindow extends JFrame {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         new LoginWindow();
-                        popup.setVisible(false);
                         popup.dispose();
+                        popup.setVisible(false);
                     }
                 });
 
