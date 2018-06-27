@@ -70,10 +70,53 @@ public class MagazzinoAggiungeOrdine {
         outFile.close();
         fw.close();
         bw.close();
-        
+
+        riscriviOrdini( bolla );
     }
 
+    public void riscriviOrdini( String bolla ) throws IOException {
+        Vector<String> memo = new Vector<String>();
 
+        FileReader fr = new FileReader("Ordini.txt");
+        BufferedReader br = new BufferedReader(fr);
+
+        String in = new String();
+
+        while ( ( in = br.readLine() ) != null ) {
+
+            String[] strArray = in.split("/");
+
+            if( strArray[0].equals(bolla) )
+            {
+                String tmp = new String();
+                tmp = strArray[0]+"/"+strArray[1]+"/"+strArray[2]+"/"+strArray[3]+"/"+strArray[4]+"/"+strArray[5]+"/1";
+                memo.add(tmp);
+            }
+            else
+            {
+                memo.add(in);
+            }
+
+        }
+
+        br.close();
+
+        FileWriter fw = new FileWriter("Ordini.txt",false);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter outFile = new PrintWriter (bw);
+        //outFile.write(tmp);
+
+        for( int i = 0; i < memo.size() ; i++ )
+        {
+            outFile.write( memo.get(i) );
+        }
+        //in=in.substring(0, in.length()-2)+posizione+"\n";
+        outFile.close();
+        fw.close();
+        bw.close();
+
+
+    }
 
     public MagazzinoAggiungeOrdine()
     {
