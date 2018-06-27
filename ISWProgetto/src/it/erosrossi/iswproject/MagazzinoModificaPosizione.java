@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
+import java.io.*;
 
 public class MagazzinoModificaPosizione extends JFrame {
     // Bottone per il ritorno alla home
@@ -13,6 +13,61 @@ public class MagazzinoModificaPosizione extends JFrame {
     private static final JButton aggiorna = new JButton("Aggiorna");
 
     // Da implementare metodo di ricerca su file e modifica posizione.
+    public int Check (String s) throws IOException {
+
+        FileReader fr = new FileReader("Articoli.txt");
+        BufferedReader br = new BufferedReader(fr);
+
+        String in = new String();
+
+        while ( ( in = br.readLine() ) != null ) {
+
+            String[] strArray = in.split("/");
+
+            if( strArray[0].equals(s) )
+            {
+                return 1;
+            }
+        }
+
+        br.close();
+
+        return 0;
+    }
+
+    public void AggiornaPos(String codice , String posizione) throws IOException {
+
+        FileReader fr = new FileReader("Articoli.txt");
+        BufferedReader br = new BufferedReader(fr);
+
+        String in = new String();
+        String tmp = new String();
+        while ( ( in = br.readLine() ) != null )  {
+
+            String[] strArray = in.split("/");
+
+            if( strArray[0].equals(codice) )
+            {
+
+                tmp = strArray[0]+"/"+strArray[1]+"/"+strArray[2]+"/"+strArray[3]+"/"+strArray[4]+"/"+posizione+"\n";
+
+                FileWriter fw = new FileWriter("Articoli.txt",true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter outFile = new PrintWriter (bw);
+                outFile.write(tmp);
+                //in=in.substring(0, in.length()-2)+posizione+"\n";
+                outFile.close();
+                fw.flush();
+                fw.close();
+                bw.close();
+            }
+        }
+
+        br.close();
+    }
+
+
+
 
     public MagazzinoModificaPosizione(  )
     {
@@ -71,6 +126,21 @@ public class MagazzinoModificaPosizione extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //Codice da inserire
+                try {
+                    int flag = Check( codice.getText() );
+
+                    if( flag == 1 )
+                    {
+                        AggiornaPos(codice.getText(),nuovaPosizione.getText());
+                    }
+                    else
+                    {
+                        // Metodo popUp per errore.
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+
             }
         });
 
@@ -90,3 +160,5 @@ public class MagazzinoModificaPosizione extends JFrame {
 
     }
 }
+
+
