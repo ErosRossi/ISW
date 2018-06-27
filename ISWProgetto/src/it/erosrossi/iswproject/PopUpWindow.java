@@ -13,6 +13,7 @@ public class PopUpWindow extends JFrame {
     private static final JButton inserimentoArticolo = new JButton("Inserimento Articolo"); // Bottone per il ritorno all'inserimento dell'articolo
     private static final JButton modificaPos = new JButton("Modifica Posizione");
     private static final JButton inserisciOrdine = new JButton("Inserisci Ordine");
+    private static final JButton inserisciOrdineN = new JButton("Inserisci Ordine");
 
     public PopUpWindow(  int x ) {
 
@@ -164,6 +165,51 @@ public class PopUpWindow extends JFrame {
 
                 break;
 
+
+            case 6: // Operazione errata inserimento
+                JLabel testoCampiInvalidi = new JLabel( "Inserimento campi invalido");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoCampiInvalidi , c );
+                popupContainer.add( testoCampiInvalidi );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(inserisciOrdineN, c);
+                popupContainer.add(inserisciOrdineN);
+                inserisciOrdineN.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new NegozioInserisceOrdine();
+                        popup.dispose();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
+
+
+            case 7: // Operazione corretta NegozioInserisceOrdini
+                JLabel testoOperazioneCorrettaN = new JLabel( "Operazione avvenuta con successo!");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoOperazioneCorrettaN , c );
+                popupContainer.add( testoOperazioneCorrettaN );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(inserisciOrdineN, c);
+                popupContainer.add(inserisciOrdineN);
+                inserisciOrdineN.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new NegozioInserisceOrdine();
+                        popup.dispose();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
         }
 
         popup.setVisible(true);
