@@ -12,6 +12,7 @@ public class PopUpWindow extends JFrame {
     private static final JButton home = new JButton("Home"); // Bottone per la home
     private static final JButton inserimentoArticolo = new JButton("Inserimento Articolo"); // Bottone per il ritorno all'inserimento dell'articolo
     private static final JButton modificaPos = new JButton("Modifica Posizione");
+    private static final JButton inserisciOrdine = new JButton("Inserisci Ordine");
 
     public PopUpWindow(  int x ) {
 
@@ -118,12 +119,12 @@ public class PopUpWindow extends JFrame {
                 break;
 
 
-            case 4: // Operazione corretta
-                JLabel testoOperazioneCorretta = new JLabel( "Operazione avvenuta con successo!");
+            case 4: // Operazione corretta di MagazzinoModificaPosizione
+                JLabel testoOperazioneCorrettaMMP = new JLabel( "Operazione avvenuta con successo!");
                 c.gridx = 0;
                 c.gridy = 0;
-                gridbag.setConstraints( testoOperazioneCorretta , c );
-                popupContainer.add( testoOperazioneCorretta );
+                gridbag.setConstraints( testoOperazioneCorrettaMMP , c );
+                popupContainer.add( testoOperazioneCorrettaMMP );
 
                 c.gridx = 0;
                 c.gridy = 1;
@@ -139,6 +140,30 @@ public class PopUpWindow extends JFrame {
                 });
 
                 break;
+
+
+            case 5: // Operazione corretta di MagazzinoAggiungeOrdine
+                JLabel testoOperazioneCorrettaMAO = new JLabel( "Operazione avvenuta con successo!");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoOperazioneCorrettaMAO , c );
+                popupContainer.add( testoOperazioneCorrettaMAO );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(inserisciOrdine, c);
+                popupContainer.add(inserisciOrdine);
+                inserisciOrdine.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new MagazzinoAggiungeOrdine();
+                        popup.dispose();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
+
         }
 
         popup.setVisible(true);
