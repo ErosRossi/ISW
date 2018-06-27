@@ -5,6 +5,8 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Vector;
 
 public class MagazzinoModificaPosizione extends JFrame {
     // Bottone per il ritorno alla home
@@ -41,30 +43,42 @@ public class MagazzinoModificaPosizione extends JFrame {
         BufferedReader br = new BufferedReader(fr);
 
         String in = new String();
-        String tmp = new String();
-        while ( ( in = br.readLine() ) != null )  {
+
+        Vector<String> array = new Vector<String>();
+
+        while ( ( in = br.readLine() ) != null ) {
 
             String[] strArray = in.split("/");
 
-            if( strArray[0].equals(codice) )
-            {
+                if (strArray[0].equals(codice)) {
+                    String tmp = new String();
+                    tmp = strArray[0] + "/" + strArray[1] + "/" + strArray[2] + "/" + strArray[3] + "/" + strArray[4] + "/" + posizione ;
+                    array.add(tmp);
 
-                tmp = strArray[0]+"/"+strArray[1]+"/"+strArray[2]+"/"+strArray[3]+"/"+strArray[4]+"/"+posizione+"\n";
-
-                FileWriter fw = new FileWriter("Articoli.txt",true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter outFile = new PrintWriter (bw);
-                outFile.write(tmp);
-                //in=in.substring(0, in.length()-2)+posizione+"\n";
-                outFile.close();
-                fw.flush();
-                fw.close();
-                bw.close();
-            }
+                }
+                else {
+                    array.add(in);
+                }
         }
 
         br.close();
+
+
+        FileWriter fw = new FileWriter("Articoli.txt", false);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter outFile = new PrintWriter(bw);
+
+        for( int i = 0; i < array.size() ; i++ )
+        {
+            outFile.println( array.get(i) );
+        }
+
+        outFile.close();
+        fw.close();
+        bw.close();
     }
+
+
 
 
 
