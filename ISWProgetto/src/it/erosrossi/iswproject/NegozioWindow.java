@@ -47,6 +47,7 @@ public class NegozioWindow extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //new InserimentoArticoliSegreteria();
+                new NegozioInserisceOrdine();
                 negozio.dispose();
                 negozio.setVisible(false);
 
