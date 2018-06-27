@@ -13,8 +13,6 @@ public class MagazzinoAggiungeOrdine {
     private static final JButton aggiungi = new JButton("Aggiungi");
 
     public Vector<String> numBolle = new Vector<String>();
-    //public Vector<String> prodotti = new Vector<String>();
-    //public Vector<String> negozio = new Vector<String>();
 
     public void getBolle() throws IOException {
 
@@ -70,11 +68,9 @@ public class MagazzinoAggiungeOrdine {
         outFile.write(tmp);
                 //in=in.substring(0, in.length()-2)+posizione+"\n";
         outFile.close();
-        fw.flush();
         fw.close();
         bw.close();
-
-
+        
     }
 
 
