@@ -13,8 +13,8 @@ public class MagazzinoAggiungeOrdine {
     private static final JButton aggiungi = new JButton("Aggiungi");
 
     public Vector<String> numBolle = new Vector<String>();
-    public Vector<String> prodotti = new Vector<String>();
-    public Vector<String> negozio = new Vector<String>();
+    //public Vector<String> prodotti = new Vector<String>();
+    //public Vector<String> negozio = new Vector<String>();
 
     public void getBolle() throws IOException {
 
@@ -26,17 +26,56 @@ public class MagazzinoAggiungeOrdine {
         while ( ( in = br.readLine() ) != null ) {
 
             String[] strArray = in.split("/");
+
             if( strArray[6].equals("0") )
             {
                 numBolle.add(strArray[0]);
-                prodotti.add(strArray[3]);
-                negozio.add(strArray[2]);
             }
 
         }
 
         br.close();
     }
+
+    // Metodo per l'aggiunta degli ordini.
+    public void AggiungiOrdine(String corriere , String bolla) throws IOException {
+
+        FileReader fr = new FileReader("Ordini.txt");
+        BufferedReader br = new BufferedReader(fr);
+
+        String in = new String();
+        String prodotti = new String();
+        String negozio = new String();
+
+        while ( ( in = br.readLine() ) != null ) {
+
+            String[] strArray = in.split("/");
+
+            if( strArray[0].equals(bolla) )
+            {
+                negozio = strArray[2];
+                prodotti = strArray[3];
+            }
+
+        }
+
+        String tmp = new String();
+        tmp = bolla+"/02 Lug 2018"+negozio+"/"+prodotti+"/"+corriere+"\n";
+
+        FileWriter fw = new FileWriter("Articoli.txt",true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        PrintWriter outFile = new PrintWriter (bw);
+        outFile.write(tmp);
+                //in=in.substring(0, in.length()-2)+posizione+"\n";
+        outFile.close();
+        fw.flush();
+        fw.close();
+        bw.close();
+
+
+    }
+
+
 
     public MagazzinoAggiungeOrdine()
     {
@@ -81,7 +120,13 @@ public class MagazzinoAggiungeOrdine {
         aggiungi.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+
                 // Inserire codice per aggiunta ordine.
+                try {
+                    AggiungiOrdine( nomeCorriere.getText(), (String) listaBolle.getSelectedItem());
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
                 new PopUpWindow(5);
                 magazzinoAddOrdine.dispose();
                 magazzinoAddOrdine.setVisible(false);
