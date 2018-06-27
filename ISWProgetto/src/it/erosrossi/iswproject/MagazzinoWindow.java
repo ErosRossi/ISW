@@ -52,8 +52,8 @@ public class MagazzinoWindow extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new LoginWindow();
-                magazzino.setVisible(false);
                 magazzino.dispose();
+                magazzino.setVisible(false);
             }
         });
 
@@ -66,8 +66,8 @@ public class MagazzinoWindow extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new MagazzinoModificaPosizione();
-                magazzino.setVisible(false);
                 magazzino.dispose();
+                magazzino.setVisible(false);
             }
         });
 
@@ -80,8 +80,8 @@ public class MagazzinoWindow extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new LoginWindow();
-                magazzino.setVisible(false);
                 magazzino.dispose();
+                magazzino.setVisible(false);
                 }
             });
 

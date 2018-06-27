@@ -91,8 +91,8 @@ public class SegreteriaVedeMovimenti {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new SegreteriaWindow();
-                movMagazzino.setVisible(false);
                 movMagazzino.dispose();
+                movMagazzino.setVisible(false);
             }
         });
 

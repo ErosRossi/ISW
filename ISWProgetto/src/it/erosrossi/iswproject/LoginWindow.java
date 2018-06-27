@@ -102,20 +102,20 @@ public class LoginWindow extends JFrame {
                 {
                     case 1:
                         new SegreteriaWindow();
-                        login.setVisible(false);
                         login.dispose();
+                        login.setVisible(false);
                     break;
 
                     case 2:
                         new NegozioWindow();
-                        login.setVisible(false);
                         login.dispose();
+                        login.setVisible(false);
                     break;
 
                     case 3:
                         new MagazzinoWindow();
-                        login.setVisible(false);
                         login.dispose();
+                        login.setVisible(false);
                     break;
 
                     case 4: // Metodo pop up per credenziali errate.

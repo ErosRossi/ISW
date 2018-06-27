@@ -211,9 +211,8 @@ public class InserimentoArticoliSegreteria extends JFrame {
                     e1.printStackTrace();
                 }
 
-
-                inserimentoArticoli.setVisible(false);
                 inserimentoArticoli.dispose();
+                inserimentoArticoli.setVisible(false);
 
             }
         });
@@ -230,8 +229,8 @@ public class InserimentoArticoliSegreteria extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new SegreteriaWindow();
-                inserimentoArticoli.setVisible(false);
                 inserimentoArticoli.dispose();
+                inserimentoArticoli.setVisible(false);
             }
         });
 

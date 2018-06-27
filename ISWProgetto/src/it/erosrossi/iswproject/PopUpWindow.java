@@ -64,8 +64,8 @@ public class PopUpWindow extends JFrame {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         new InserimentoArticoliSegreteria();
-                        popup.setVisible(false);
                         popup.dispose();
+                        popup.setVisible(false);
                     }
                 });
 
@@ -88,8 +88,8 @@ public class PopUpWindow extends JFrame {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         new InserimentoArticoliSegreteria();
-                        popup.setVisible(false);
                         popup.dispose();
+                        popup.setVisible(false);
                     }
                 });
 
