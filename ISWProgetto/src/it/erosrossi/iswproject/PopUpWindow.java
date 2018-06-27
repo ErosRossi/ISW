@@ -11,7 +11,7 @@ public class PopUpWindow extends JFrame {
     
     private static final JButton home = new JButton("Home"); // Bottone per la home
     private static final JButton inserimentoArticolo = new JButton("Inserimento Articolo"); // Bottone per il ritorno all'inserimento dell'articolo
-
+    private static final JButton modificaPos = new JButton("Modifica Posizione");
 
     public PopUpWindow(  int x ) {
 
@@ -88,6 +88,51 @@ public class PopUpWindow extends JFrame {
                     @Override
                     public void mouseClicked(MouseEvent e) {
                         new InserimentoArticoliSegreteria();
+                        popup.dispose();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
+
+            case 3: // Impossibile cambiare posizione
+                JLabel testoImpossibileModifica = new JLabel( "Non é possibile modificare eseguire l'operazione ");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoImpossibileModifica , c );
+                popupContainer.add( testoImpossibileModifica );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(modificaPos, c);
+                popupContainer.add(modificaPos);
+                modificaPos.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new MagazzinoModificaPosizione();
+                        popup.dispose();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
+
+
+            case 4: // Operazione corretta
+                JLabel testoOperazioneCorretta = new JLabel( "Operazione avvenuta con successo!");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoOperazioneCorretta , c );
+                popupContainer.add( testoOperazioneCorretta );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(modificaPos, c);
+                popupContainer.add(modificaPos);
+                modificaPos.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new MagazzinoModificaPosizione();
                         popup.dispose();
                         popup.setVisible(false);
                     }

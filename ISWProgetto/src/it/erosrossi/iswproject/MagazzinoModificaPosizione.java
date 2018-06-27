@@ -132,10 +132,16 @@ public class MagazzinoModificaPosizione extends JFrame {
                     if( flag == 1 )
                     {
                         AggiornaPos(codice.getText(),nuovaPosizione.getText());
+                        new PopUpWindow(4); // Inserimento corretto
+                        modificaPosizione.dispose();
+                        modificaPosizione.setVisible(false);
                     }
                     else
                     {
-                        // Metodo popUp per errore.
+                        new PopUpWindow(3); // Inserimento errato
+                        modificaPosizione.dispose();
+                        modificaPosizione.setVisible(false);
+
                     }
                 } catch (IOException e1) {
                     e1.printStackTrace();
