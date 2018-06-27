@@ -152,6 +152,7 @@ public class MagazzinoModificaPosizione extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 new LoginWindow();
+                modificaPosizione.dispose();
                 modificaPosizione.setVisible(false);
             }
         });
