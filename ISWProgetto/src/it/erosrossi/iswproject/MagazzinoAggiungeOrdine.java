@@ -108,7 +108,7 @@ public class MagazzinoAggiungeOrdine {
 
         for( int i = 0; i < memo.size() ; i++ )
         {
-            outFile.write( memo.get(i) );
+            outFile.println( memo.get(i) );
         }
         //in=in.substring(0, in.length()-2)+posizione+"\n";
         outFile.close();
