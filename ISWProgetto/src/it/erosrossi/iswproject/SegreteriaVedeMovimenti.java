@@ -17,7 +17,7 @@ public class SegreteriaVedeMovimenti {
     public Vector<String> bolladaEseguire = new Vector<String>();
     public Vector<String> dataEseguiti = new Vector<String>();
     public Vector<String> dataDaEseguire = new Vector<String>();
-    public Vector<String> negozioEsegiuti = new Vector<String>();
+    public Vector<String> negozioEseguiti = new Vector<String>();
     public Vector<String> negozioDaEseguire = new Vector<String>();
     // public Vector<String> checkOrdini = new Vector<String>();
 
@@ -37,7 +37,7 @@ public class SegreteriaVedeMovimenti {
             String[] strArray = s.split("/");
             bollaEseguiti.add(strArray[0]);
             dataEseguiti.add(strArray[1]);
-            negozioEsegiuti.add(strArray[2]);
+            negozioEseguiti.add(strArray[2]);
         }
 
         br.close();
@@ -69,7 +69,7 @@ public class SegreteriaVedeMovimenti {
         {
             datiEseguiti[i][0] = bollaEseguiti.get(i);
             datiEseguiti[i][1] = dataEseguiti.get(i);
-            datiEseguiti[i][2] = negozioEsegiuti.get(i);
+            datiEseguiti[i][2] = negozioEseguiti.get(i);
             
         }
 
