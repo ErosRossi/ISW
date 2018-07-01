@@ -47,7 +47,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
     public int checkslash(String s){
 
         if(s.contains("/")) {
-
+            return 0;
         }
 
         return 1;
@@ -73,7 +73,7 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
 
 
-        String path = "C:/html.txt";
+
 
 
 
@@ -202,13 +202,13 @@ public class InserimentoArticoliSegreteria extends JFrame {
                 String tagliac = taglia.getText();
                 String colorec = colore.getText();
 
-                if((checkslash(sportc) == 1)||(checkslash(tipoc) == 1)|| (checkslash(materialec) == 1 ) || (checkslash(tagliac) == 1) || (checkslash(colorec) ==1)){
+                if((checkslash(sportc) == 0)||(checkslash(tipoc) == 0)|| (checkslash(materialec) == 0 ) || (checkslash(tagliac) == 0) || (checkslash(colorec) ==0)){
                     new PopUpWindow(2);
                     inserimentoArticoli.dispose();
                     inserimentoArticoli.setVisible(false);
                 }
                 else {
-                    String stringcatalogo = sportc + "/" + tipoc + "/" + materialec + "/" + tagliac + "/" + colorec + ".";
+                    String stringcatalogo = sportc + "/" + tipoc + "/" + materialec + "/" + tagliac + "/" + colorec ;
 
                     try {
                         if (Check(stringcatalogo) == 1) {
