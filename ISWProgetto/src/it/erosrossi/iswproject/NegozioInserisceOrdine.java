@@ -148,7 +148,7 @@ public class NegozioInserisceOrdine {
         home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new SegreteriaWindow();
+                new NegozioWindow();
                 inserimentoOrdine.dispose();
                 inserimentoOrdine.setVisible(false);
             }
