@@ -34,6 +34,15 @@ public class NegozioInserisceOrdine {
             fw.close();
     }
 
+    public int checkslash(String s){
+
+        if(s.contains("/")) {
+            return 0;
+        }
+
+        return 1;
+    }
+
     public NegozioInserisceOrdine(){
 
         JFrame inserimentoOrdine = new JFrame("Inserimento Ordini"); // Creo la finestra.
@@ -96,7 +105,7 @@ public class NegozioInserisceOrdine {
                 {
                     String articoliO =  articoli.getText();
                     String pezzoO = pezzi.getText();
-
+                    if ((checkslash(articoliO)==1) && checkslash(pezzoO)==1){
                     String stringa = "5/02 Lug 2018/N-01/"+articoliO+"/"+pezzoO+"/50/0";
 
                     String daStampa = stringa+"\n";
@@ -107,6 +116,13 @@ public class NegozioInserisceOrdine {
                     }
 
                     new PopUpWindow( 7 );
+                    }
+                    else {
+                        new PopUpWindow(6);
+                        inserimentoOrdine.dispose();
+                        inserimentoOrdine.setVisible(false);
+                    }
+
                 }
                 else {
 
