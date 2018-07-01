@@ -18,7 +18,7 @@ public class PopUpWindow extends JFrame {
     public PopUpWindow(  int x ) {
 
         JFrame popup = new JFrame("Attenzione!"); // Creo la finestra.
-        popup.setSize(300, 150);
+        popup.setSize(550, 150);
         popup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container popupContainer = popup.getContentPane();
         GridBagLayout gridbag = new GridBagLayout();
@@ -76,7 +76,7 @@ public class PopUpWindow extends JFrame {
 
 
             case 2: // Caso di articolo giá inserito nel catalogo.
-                JLabel testoArticoloGiaInserito = new JLabel( "L' articolo é giá presente nel nostro catalogo!");
+                JLabel testoArticoloGiaInserito = new JLabel( "L' articolo é giá presente nel nostro catalogo oppure uno dei campi non è valido!");
                 c.gridx = 0;
                 c.gridy = 0;
                 gridbag.setConstraints( testoArticoloGiaInserito , c );
