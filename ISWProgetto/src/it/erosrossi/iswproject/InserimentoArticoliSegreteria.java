@@ -194,6 +194,8 @@ public class InserimentoArticoliSegreteria extends JFrame {
                 if( contaCampiVuoti != 0 )
                 {
                     new PopUpWindow( 1 );
+                    inserimentoArticoli.dispose();
+                    inserimentoArticoli.setVisible(false);
                 }
 
                 String sportc =  sport.getText();
