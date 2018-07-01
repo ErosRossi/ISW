@@ -10,7 +10,7 @@ import java.util.Vector;
 
 public class MagazzinoModificaPosizione extends JFrame {
     // Bottone per il ritorno alla home
-    private static final JButton home = new JButton("Home");
+    private static final JButton home = new JButton("Home Magazzino");
     // Bottone per il ritorno alla home
     private static final JButton aggiorna = new JButton("Aggiorna");
 
@@ -79,7 +79,24 @@ public class MagazzinoModificaPosizione extends JFrame {
     }
 
 
+    public int checkslash(String s){
 
+        if(s.contains("/")) {
+            return 0;
+        }
+
+        return 1;
+    }
+
+    public int contaCampiVuoti = 0;
+    public void ContaVuoti( String daControllare )
+    {
+        daControllare = daControllare.trim(); // Sovrascrivo la stringa eliminando gli spazi
+
+        if( daControllare.isEmpty() ) {
+            contaCampiVuoti = 1;
+        }
+    }
 
 
 
@@ -140,22 +157,27 @@ public class MagazzinoModificaPosizione extends JFrame {
             @Override
             public void mouseClicked(MouseEvent e) {
                 //Codice da inserire
+
+                String pos = nuovaPosizione.getText();
+                String cod = codice.getText();
                 try {
-                    int flag = Check( codice.getText() );
+                    int flag = Check( cod );
 
                     if( flag == 1 )
                     {
-                        AggiornaPos(codice.getText(),nuovaPosizione.getText());
-                        new PopUpWindow(4); // Inserimento corretto
-                        modificaPosizione.dispose();
-                        modificaPosizione.setVisible(false);
-                    }
-                    else
-                    {
+                        if ((contaCampiVuoti==0) && ((checkslash(pos)==1 ))){
+                            AggiornaPos(cod,pos);
+                            new PopUpWindow(4); // Inserimento corretto
+                            modificaPosizione.dispose();
+                            modificaPosizione.setVisible(false);
+                        }
+                        else{
+
                         new PopUpWindow(3); // Inserimento errato
                         modificaPosizione.dispose();
                         modificaPosizione.setVisible(false);
 
+                        }
                     }
                 } catch (IOException e1) {
                     e1.printStackTrace();
@@ -171,7 +193,7 @@ public class MagazzinoModificaPosizione extends JFrame {
         home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new LoginWindow();
+                new MagazzinoWindow();
                 modificaPosizione.dispose();
                 modificaPosizione.setVisible(false);
             }
