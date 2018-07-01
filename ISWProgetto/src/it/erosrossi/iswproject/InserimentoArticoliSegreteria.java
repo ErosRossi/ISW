@@ -44,6 +44,15 @@ public class InserimentoArticoliSegreteria extends JFrame {
 
     }
 
+    public int checkslash(String s){
+
+        if(s.contains("/")) {
+
+        }
+
+        return 1;
+    }
+
     public void writeFile(String s) {
 
         try {
@@ -193,27 +202,30 @@ public class InserimentoArticoliSegreteria extends JFrame {
                 String tagliac = taglia.getText();
                 String colorec = colore.getText();
 
-                String stringcatalogo = sportc+"/"+tipoc+"/"+materialec+"/"+tagliac+"/"+colorec+"." ;
-
-                try {
-                    if( Check(stringcatalogo) == 1 )
-                    {
-                        new PopUpWindow(2);
-                    }
-                    else
-                    {
-                        String daStampa = stringcatalogo+"\n";
-                        writeFile(daStampa);
-                        new SegreteriaWindow();
-                    }
-
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                if((checkslash(sportc) == 1)||(checkslash(tipoc) == 1)|| (checkslash(materialec) == 1 ) || (checkslash(tagliac) == 1) || (checkslash(colorec) ==1)){
+                    new PopUpWindow(2);
+                    inserimentoArticoli.dispose();
+                    inserimentoArticoli.setVisible(false);
                 }
+                else {
+                    String stringcatalogo = sportc + "/" + tipoc + "/" + materialec + "/" + tagliac + "/" + colorec + ".";
 
-                inserimentoArticoli.dispose();
-                inserimentoArticoli.setVisible(false);
+                    try {
+                        if (Check(stringcatalogo) == 1) {
+                            new PopUpWindow(2);
+                        } else {
+                            String daStampa = stringcatalogo + "\n";
+                            writeFile(daStampa);
+                            new SegreteriaWindow();
+                        }
 
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
+                    inserimentoArticoli.dispose();
+                    inserimentoArticoli.setVisible(false);
+                }
             }
         });
 
