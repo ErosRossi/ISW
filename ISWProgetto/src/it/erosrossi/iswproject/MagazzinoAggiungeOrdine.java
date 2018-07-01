@@ -116,6 +116,25 @@ public class MagazzinoAggiungeOrdine {
         bw.close();
 
 
+        }
+
+    public int checkslash(String s){
+
+        if(s.contains("/")) {
+            return 0;
+        }
+
+        return 1;
+    }
+
+    public int contaCampiVuoti = 0;
+    public void ContaVuoti( String daControllare )
+    {
+        daControllare = daControllare.trim(); // Sovrascrivo la stringa eliminando gli spazi
+
+        if( daControllare.isEmpty() ) {
+            contaCampiVuoti = 1;
+        }
     }
 
     public MagazzinoAggiungeOrdine()
@@ -171,14 +190,24 @@ public class MagazzinoAggiungeOrdine {
             public void mouseClicked(MouseEvent e) {
 
                 // Inserire codice per aggiunta ordine.
-                try {
-                    AggiungiOrdine( nomeCorriere.getText(), (String) listaBolle.getSelectedItem());
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                String nomecorriere = nomeCorriere.getText();
+                ContaVuoti( new String(nomeCorriere.getText()) );
+
+                if ((contaCampiVuoti==0)&& (checkslash(nomecorriere) == 1)) {
+                    try {
+                        AggiungiOrdine(nomecorriere, (String) listaBolle.getSelectedItem());
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                    new PopUpWindow(5);
+                    magazzinoAddOrdine.dispose();
+                    magazzinoAddOrdine.setVisible(false);
+
+                } else {
+                    new PopUpWindow(8);
+                    magazzinoAddOrdine.dispose();
+                    magazzinoAddOrdine.setVisible(false);
                 }
-                new PopUpWindow(5);
-                magazzinoAddOrdine.dispose();
-                magazzinoAddOrdine.setVisible(false);
             }
         });
 
