@@ -98,7 +98,7 @@ public class PopUpWindow extends JFrame {
                 break;
 
             case 3: // Impossibile cambiare posizione
-                JLabel testoImpossibileModifica = new JLabel( "Inserimento posizione invalido! ");
+                JLabel testoImpossibileModifica = new JLabel( "Inserimento posizione invalido o campi vuoti! ");
                 c.gridx = 0;
                 c.gridy = 0;
                 gridbag.setConstraints( testoImpossibileModifica , c );
