@@ -2,6 +2,8 @@ package it.erosrossi.iswproject;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -13,6 +15,7 @@ public class MagazzinoWindow extends JFrame {
     private static final JButton ordini = new JButton("Controllo Ordini");
     // Bottone per la visualizzazione degli ordini
     private static final JButton modificaPosizione = new JButton("Modifica Disposizione");
+
 
 
     public MagazzinoWindow(  )
@@ -51,7 +54,7 @@ public class MagazzinoWindow extends JFrame {
         ordini.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new LoginWindow();
+                new MagazzinoAggiungeOrdine();
                 magazzino.dispose();
                 magazzino.setVisible(false);
             }
@@ -79,10 +82,14 @@ public class MagazzinoWindow extends JFrame {
         home.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                new LoginWindow();
-                magazzino.dispose();
+
+
                 magazzino.setVisible(false);
-                }
+                magazzino.dispose();
+                new LoginWindow();
+                //magazzino.setDefaultCloseOperation();
+
+            }
             });
 
         magazzino.setVisible(true); // Rendo la finestra visibile, sempre mettere in fondo al metodo.
