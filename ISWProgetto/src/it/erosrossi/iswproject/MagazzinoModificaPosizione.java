@@ -165,7 +165,7 @@ public class MagazzinoModificaPosizione extends JFrame {
 
                     if( flag == 1 )
                     {
-                        if ((contaCampiVuoti==0) && ((checkslash(pos)==1 ))){
+                        if ((contaCampiVuoti!=0) && ((checkslash(pos)==1 ))){
                             AggiornaPos(cod,pos);
                             new PopUpWindow(4); // Inserimento corretto
                             modificaPosizione.dispose();
