@@ -92,24 +92,29 @@ public class NegozioInserisceOrdine {
                 ContaVuoti( new String(pezzi.getText()) );
                 ContaVuoti( new String(articoli.getText()) );
 
-                if( contaCampiVuoti != 0 )
+                if( contaCampiVuoti == 0 )
                 {
+                    String articoliO =  articoli.getText();
+                    String pezzoO = pezzi.getText();
+
+                    String stringa = "5/02 Lug 2018/N-01/"+articoliO+"/"+pezzoO+"/50/0";
+
+                    String daStampa = stringa+"\n";
+                    try {
+                        writeFile(daStampa);
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
+
                     new PopUpWindow( 7 );
                 }
+                else {
 
-                String articoliO =  articoli.getText();
-                String pezzoO = pezzi.getText();
-
-                String stringa = "5/02 Lug 2018/N-01/"+articoliO+"/"+pezzoO+"/50/0";
-
-                String daStampa = stringa+"\n";
-                try {
-                    writeFile(daStampa);
-                } catch (IOException e1) {
-                    e1.printStackTrace();
+                    new PopUpWindow(6);
+                    inserimentoOrdine.dispose();
+                    inserimentoOrdine.setVisible(false);
                 }
 
-                new PopUpWindow(6);
                 inserimentoOrdine.dispose();
                 inserimentoOrdine.setVisible(false);
 
