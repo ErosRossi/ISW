@@ -210,6 +210,28 @@ public class PopUpWindow extends JFrame {
                 });
 
                 break;
+
+            case 8: // Operazione corretta di MagazzinoAggiungeOrdine
+                JLabel testoOperazioneErrataMAO = new JLabel( "Inserimento corriere non valido!");
+                c.gridx = 0;
+                c.gridy = 0;
+                gridbag.setConstraints( testoOperazioneErrataMAO , c );
+                popupContainer.add( testoOperazioneErrataMAO );
+
+                c.gridx = 0;
+                c.gridy = 1;
+                gridbag.setConstraints(inserisciOrdine, c);
+                popupContainer.add(inserisciOrdine);
+                inserisciOrdine.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        new MagazzinoAggiungeOrdine();
+                        popup.dispose();
+                        popup.setVisible(false);
+                    }
+                });
+
+                break;
         }
 
         popup.setVisible(true);
